@@ -222,6 +222,7 @@
     "@babel/core": "^7.22.10",
     "@babel/preset-env": "^7.22.10",
     "babel-loader": "^9.1.3",
+    "clean-webpack-plugin": "^4.0.0",
     "core-js": "^3.32.0",
     "css-loader": "^6.8.1",
     "file-loader": "^6.2.0",
@@ -237,10 +238,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "jest:watch": "jest --w",
-    "copy:html": "cp ./src/index.html ./dist/index.html",
-    "build:scripts": "webpack --mode=production",
-    "clean": " rm -rf ./dist",
-    "build": "npm-run-all clean build:* copy:*"
+    "build": "webpack --mode=production"
   },
   "keywords": [],
   "author": "",
