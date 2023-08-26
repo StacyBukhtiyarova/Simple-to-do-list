@@ -1,8 +1,8 @@
-import { onCreateTask } from './createTask.js';
-import { onToggleTask } from './updateTask.js';
-import { deleteTask, getTasksList } from './serverExchange.js';
-import { renderTasks } from './renderer.js';
-import { setItem, getItem } from './storage.js';
+import { onCreateTask } from './createTask';
+import onToggleTask from './updateTask';
+import { deleteTask, getTasksList } from './serverExchange';
+import renderTasks from './renderer';
+import { setItem } from './storage';
 
 const onDeleteTask = (e) => {
   const taskId = e.target.dataset.id;

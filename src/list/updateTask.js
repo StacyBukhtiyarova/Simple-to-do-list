@@ -1,10 +1,8 @@
-import { renderTasks } from './renderer.js';
-import { getItem, setItem } from './storage.js';
-import { updateTask, getTasksList, deleteTask } from './serverExchange.js';
-import { onDeleteTask } from './createTask.js';
+import renderTasks from './renderer';
+import { getItem, setItem } from './storage';
+import { updateTask, getTasksList } from './serverExchange';
 
-
-export const onToggleTask = (e) => {
+export default function onToggleTask(e) {
   const isCheckbox = e.target.classList.contains('list__item-checkbox');
 
   if (!isCheckbox) {
@@ -27,5 +25,4 @@ export const onToggleTask = (e) => {
       setItem('tasksList', newTasksList);
       renderTasks();
     });
-};
-
+}

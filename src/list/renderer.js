@@ -1,4 +1,4 @@
-import { getItem } from './storage.js';
+import { getItem } from './storage';
 
 import './list.scss';
 
@@ -43,10 +43,10 @@ const createListItem = ({ text, done, id }) => {
   return listItemElem;
 };
 
-export const renderTasks = () => {
+export default function renderTasks() {
   const tasksList = getItem('tasksList') || [];
   listElem.innerHTML = '';
   const tasksElems = tasksList.map(createListItem).sort(compareTasks);
 
   listElem.append(...tasksElems);
-};
+}

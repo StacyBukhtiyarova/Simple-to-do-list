@@ -1,7 +1,6 @@
-import { renderTasks } from './renderer.js';
-import { getItem, setItem } from './storage.js';
-import { createTask } from './serverExchange.js';
-import { getTasksList } from './serverExchange.js';
+import renderTasks from './renderer';
+import { setItem } from './storage';
+import { createTask, getTasksList } from './serverExchange';
 
 export const onCreateTask = () => {
   const taskTitleInputElem = document.querySelector('.task-input');
@@ -26,9 +25,9 @@ export const onCreateTask = () => {
     });
 };
 
-export const onDeleteTask = () => {
+export default function onDeleteTask() {
   const taskTitleInputElem = document.querySelector('.task-input');
- 
+
   const text = taskTitleInputElem.value;
   if (!text) {
     return;
@@ -39,8 +38,7 @@ export const onDeleteTask = () => {
     text,
     done: false,
     createDate: new Date().toISOString(),
-     id: Math.random().toString(),
-    
+    id: Math.random().toString(),
   };
   createTask(newTask)
     .then(() => getTasksList())
@@ -48,4 +46,4 @@ export const onDeleteTask = () => {
       setItem('tasksList', newTasksList);
       renderTasks();
     });
-};
+}
